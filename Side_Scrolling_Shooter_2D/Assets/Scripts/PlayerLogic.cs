@@ -6,6 +6,7 @@ public class PlayerLogic : MonoBehaviour
 {
     #region Variables
     public float playerSpeed = 3.0f;
+    public GameObject projectile;
 
     float maxPlayerY = 7.0f;
     float maxPlayerX = 25.0f;
@@ -14,6 +15,7 @@ public class PlayerLogic : MonoBehaviour
     private void Update()
     {
         PlayerMovement();
+        KeyThenSpawnProjectile();
     }
 
     void PlayerMovement()
@@ -34,5 +36,21 @@ public class PlayerLogic : MonoBehaviour
         {
             transform.Translate(playerSpeed, 0, 0);
         }
+    }
+
+    void KeyThenSpawnProjectile()
+    {
+        if(Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.L))
+        {
+            SpawnProjectile();
+        }
+    }
+
+    void SpawnProjectile()
+    {
+        Instantiate(projectile, new Vector3
+            (transform.position.x,
+            transform.position.y),
+            Quaternion.identity);
     }
 }// main class
