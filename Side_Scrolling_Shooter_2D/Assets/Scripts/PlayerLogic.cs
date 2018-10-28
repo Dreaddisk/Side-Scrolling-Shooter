@@ -40,7 +40,7 @@ public class PlayerLogic : MonoBehaviour
 
     void KeyThenSpawnProjectile()
     {
-        if(Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.L))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             SpawnProjectile();
         }
